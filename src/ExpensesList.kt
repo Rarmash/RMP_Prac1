@@ -3,7 +3,7 @@ class ExpensesList {
 
     fun addExpense(expense: Expense) {
         expensesList.add(expense)
-        println("Расход добавлен: ${expense.getCategory()} - ${expense.getExpenseAmount()}")
+        println("Расход добавлен: ${expense.category} - ${expense.expenseAmount}")
         println("---")
     }
 
@@ -19,8 +19,8 @@ class ExpensesList {
     }
 
     private fun getTotalByCategory(): Map<String, Double> {
-        return expensesList.groupBy { it.getCategory() }
-            .mapValues { entry -> entry.value.sumOf { it.getExpenseAmount() } }
+        return expensesList.groupBy { it.category }
+            .mapValues { entry -> entry.value.sumOf { it.expenseAmount } }
     }
 
     fun printTotalByCategory() {
